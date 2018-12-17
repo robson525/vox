@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A03B15B5-6C9A-44DF-8C39-C7CBB8A92408}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>VoxData.VoxCRM.Service.CRIStatistics</RootNamespace>
+    <AssemblyName>VoxData.VoxCRM.Service.CRIStatistics</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ProjectInstaller.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ProjectInstaller.Designer.cs">
+      <DependentUpon>ProjectInstaller.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CRIService.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CRIService.Designer.cs">
+      <DependentUpon>CRIService.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Reader.cs" />
+    <Compile Include="Transfer.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ProjectInstaller.resx">
+      <DependentUpon>ProjectInstaller.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\VoxData.Shared\VoxData.Shared\VoxData.Shared.DAO\VoxData.Shared.DAO.csproj">
+      <Project>{00256fa0-e3e6-4c8e-8acf-e254056f2a6b}</Project>
+      <Name>VoxData.Shared.DAO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\VoxData.Shared\VoxData.Shared\VoxData.Shared.Functions\VoxData.Shared.Functions.csproj">
+      <Project>{bc18b371-fa65-431d-b927-c6f1e3842d43}</Project>
+      <Name>VoxData.Shared.Functions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\VoxData.Shared\VoxData.Shared\_External\SevenZipLib\SevenZipLib.csproj">
+      <Project>{9a278b0e-f447-486e-a6fc-f7e70558ea73}</Project>
+      <Name>SevenZipLib</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\BusisnessLayer\VoxData.VoxCRM.GeneralFunctions\VoxData.VoxCRM.GeneralFunctions.csproj">
+      <Project>{cc9534da-7a94-430e-8dbd-c0543ceb581a}</Project>
+      <Name>VoxData.VoxCRM.GeneralFunctions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\DataLayer\VoxData.VoxCRM.DAO\VoxData.VoxCRM.DAO.csproj">
+      <Project>{1c9a1fd3-36bb-4c88-9542-48245747411b}</Project>
+      <Name>VoxData.VoxCRM.DAO</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
